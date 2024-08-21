@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Table content</title>
+</head>
+<body>
+    <table id="new_content">
+        <tr>
+            Add new Content: 
+        </tr>
+        <tr>
+            <input type="number" id="num">
+        </tr>
+        <tr>
+            <button onclick="newrow()">ADD</button>
+        </tr>
+
+    </table>
+    <script>
+        function newrow() {
+            var table = document.getElementById("num").value;
+            for(i=1;i<=table;i++){
+                var newRow = table.insertRow();
+                var z= document.createElement("tr");
+                showAlert();
+            }
+            function showAlert() {
+            alert(table,"number of rows have been created");
+        }
+        }
+    </script>
+</body>
+</html>

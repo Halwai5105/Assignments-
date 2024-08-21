@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM Manipulation Example</title>
+    <style>
+        #dynamicText {
+            color: blue;
+            position: relative;
+        }
+        .red-text {
+            color: red;
+        }
+    </style>
+    <!-- Include jQuery library -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+    <h1 id="title">DOM Manipulation Example</h1>
+    <p id="dynamicText">This is a paragraph that will change color and position.</p>
+    <p class="red-text">This text is initially red.</p>
+    <img id="image" src="image/landscape.jfif" alt="Initial Image" width="200">
+    <br><br>
+    <button id="changeTextButton">Change Text</button>
+    <button id="changeStyleButton">Change Style</button>
+    <button id="changeImageButton">Change Image</button>
+    <button id="addTextNodeButton">Add Text Node</button>
+    <button id="deleteNodeButton">Delete Node</button>
+    <button id="changeButtonTextButton">Change Button Text</button>
+    <button id="setBackgroundImageButton">Set Background Image</button>
+    <br><br>
+    <div id="textNodeContainer"></div>
+    <br>
+    <form id="sampleForm">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name">
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email">
+        <button type="button" id="submitFormButton">Submit Form</button>
+    </form>
+
+    <script>
+        document.getElementById('changeTextButton').addEventListener('click', function() {
+            document.getElementById('title').innerHTML = "Text has been changed!";
+        });
+
+        document.getElementById('changeStyleButton').addEventListener('click', function() {
+            var dynamicText = document.getElementById('dynamicText');
+            dynamicText.style.color = 'green';
+            dynamicText.style.top = '10px';
+            dynamicText.style.left = '0px';
+        });
+
+        document.getElementById('changeImageButton').addEventListener('click', function() {
+            document.getElementById('image').src = 'image/smiley.gif';
+        });
+
+        document.getElementById('addTextNodeButton').addEventListener('click', function() {
+            var textNodeContainer = document.getElementById('textNodeContainer');
+            var textNode = document.createTextNode('This is a new text node.');
+            textNodeContainer.appendChild(textNode);
+        });
+
+        document.getElementById('deleteNodeButton').addEventListener('click', function() {
+            var elementToDelete = document.getElementsByTagName('p')[1];
+            if (elementToDelete) {
+                elementToDelete.parentNode.removeChild(elementToDelete);
+            }
+        });
+
+        $('#changeButtonTextButton').click(function() {
+            $(this).text("Button Text Changed");
+        });
+
+        $('#setBackgroundImageButton').click(function() {
+            $('body').css('background-image', 'url("https://img.freepik.com/free-photo/photo-metal-texture-pattern_58702-13685.jpg?w=996&t=st=1722927325~exp=1722927925~hmac=1301f34c19ab949adea3fd1d03c3fc985f5530f35325224dceb31a0efd920b15")');
+        });
+
+        $('#submitFormButton').click(function() {
+            var name = $('#name').val();
+            var email = $('#email').val();
+            alert('Name: ' + name + '\nEmail: ' + email);
+        });
+
+        $('#changeImageButton').click(function() {
+            $('#image').attr('alt', 'New Image');
+        });
+    </script>
+</body>
+</html>

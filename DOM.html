@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>DOM</title>
+    <style>
+        body{
+            text-align: center;
+        }
+        img {
+            text-align: center;
+        }
+        #content {
+            color: purple;
+            position: relative;
+        }
+        #image {
+            width: 200px;
+            height: 200px;
+        }
+        .hidden {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <p id="demo"></p>
+    <img id="image" src="image/smiley.gif" width="360" height="360">
+    <p>the original image was smiley.gif, but the script changed it to landscape.jpg</p>
+    <h1>Welcome to the Dynamic Web Page</h1>
+    <div id="content">This is some content text.</div>
+    <img id="image" src="image/landscape.jfif" alt="Placeholder Image"><br>
+    <button id="changeTextBtn">Change Text</button>
+    <button id="changeImageBtn">Change Image</button>
+    <button id="deleteNodeBtn">Delete Node</button>
+    <button id="addTextNodeBtn">Add Text Node</button>
+    <button id="setBackgroundImageButton">Set bg Img</button>
+    <h1  id="header"></h1>
+    <form id="myForm">
+        <input type="text" name="username" placeholder="Username">
+        <input type="submit" value="Submit">
+    </form>
+    <div id="formData"></div>
+    <ol>
+        <li>List Item 1</li>
+        <li>List Item 2</li>
+    </ol>
+    <button id="btn1">Append</button>
+    <button id="button1">remove</button>
+    <script src="script.js"></script>
+    <script>
+        document.getElementById('demo').innerHTML = "Hello World";
+        document.getElementById('image').src="image/landscape.jfif";
+
+        document.getElementById('changeTextBtn').addEventListener('click', function() {
+            document.getElementById('content').innerHTML = 'pehchan kon !!';
+            document.getElementById('content').style.color = 'blue';
+            document.getElementById('content').style.left = '100px';
+        });
+
+    document.getElementById('changeImageBtn').addEventListener('click', function() {
+        document.getElementById('image').src = 'image/smiley.gif';
+    });
+
+    document.getElementById('deleteNodeBtn').addEventListener('click', function() {
+        var contentNode = document.getElementById('content');
+        if (contentNode) {
+            contentNode.parentNode.removeChild(contentNode);
+        }
+    });
+
+    document.getElementById('addTextNodeBtn').addEventListener('click', function() {
+        var newText = document.createTextNode('This is a new text node.');
+        var header = document.getElementById('header');
+        header.appendChild(newText);
+    });
+
+    $(document).ready(function() {
+    $('#changeButtonTextBtn').click(function() {
+        $(this).text('Button Text Changed');
+    });
+    $('#myForm').submit(function(event) {
+        event.preventDefault();
+        var formData = $(this).serialize();
+        $('#formData').text('Form Data: ' + formData);
+    });
+
+        $('#image').attr('alt', 'Updated Placeholder Image');
+    });
+
+    $(document).ready(function(){
+        $("#btn1").click(function(){
+            $("ol").append("<li> List Item 3</li>");
+        });
+    });
+
+    $(document.getElementById("button1")).click(function(){
+        $("p").remove();
+    });
+    $('#setBackgroundImageButton').click(function() {
+            $('body').css('background-image', 'url("https://img.freepik.com/free-photo/photo-metal-texture-pattern_58702-13685.jpg?w=996&t=st=1722927325~exp=1722927925~hmac=1301f34c19ab949adea3fd1d03c3fc985f5530f35325224dceb31a0efd920b15")');
+        });
+    </script>
+</body>
+</html>

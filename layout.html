@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Harsh Halwai</title>
+<style>
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: cursive;
+  background-color: black;
+  font-weight: bold;
+}
+
+/* Style the header */
+header {
+  background-color: #0D41E1;
+  padding: 30px;
+  width : 100%;
+  text-align: center;
+  font-size: 35px;
+  color: white;
+  text-shadow: 4px 4px 5px red;
+}
+
+/* Create two columns/boxes that floats next to each other */
+nav {
+  float: left;
+  width: 20%;
+  height: 300px; /* only for demonstration, should be removed */
+  background: #09A6F3;
+  padding: 20px;
+}
+
+/* Style the list inside the menu */
+nav ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+article {
+  float: left;
+  text-align: center;
+  padding: 20px;
+  width : 80%;
+  background-color: #07C8F9;
+  height: 300px; /* only for demonstration, should be removed */
+}
+
+/* Clear floats after the columns */
+section::after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* Style the footer */
+footer {
+  background-color: #244bb7;
+  padding: 10px;
+  text-align: center;
+  color: white;
+  font-size: 25px;
+  text-shadow: 4px 4px 5px red;
+}
+
+/* Responsive layout - makes the two columns/boxes stack on top of each other instead of next to each other, on small screens */
+@media (max-width: 800px) {
+  nav, article {
+    width: 100%;
+    height: auto;
+  }
+}
+
+
+a:link {
+  color: red;
+}
+a:hover {
+  color: lightblue;
+}
+
+a:active {
+  color: blue;
+}
+</style>
+</head>
+<body>
+<header>
+  <h2>HARSH HALWAI</h2>
+</header>
+
+<section>
+  <nav>
+    <ul>
+      <li><a href="https://cars.mclaren.com/us-en">McLaren</a></li>
+      <li><a href="https://www.volvo.com/en/">Volvo</a></li>
+      <li><a href="https://www.astonmartin.com/en">Aston Martin</a></li>
+    </ul>
+  </nav>
+  
+  <article>
+    <section class="section" id="contact">
+      <div class="container text-center">
+          <p class="section-subtitle">How can you communicate?</p>
+          <form action="" class="contact-form col-md-10 col-lg-8 m-auto">
+              <div class="form-row">
+                  <div class="form-group col-sm-6">
+                      <input type="text"class="form-control" placeholder="Your Name" required>                 
+                  </div>
+                  <div class="form-group col-sm-6">
+                      <input type="email" class="form-control" placeholder="Enter Email"requried>                 
+                  </div>
+                  <div class="form-group col-sm-12">
+                      <label>Gender: </label><input type="radio" name="panel">Male<input type="radio" name="panel">Female
+                  </div>
+                  <div class="form-group col-sm-12 mt-3">
+                      <input type="submit" value="Send Message" class="btn btn-outline-primary rounded" id="form">                  
+                  </div>
+              </div>  
+          </form><!-- end of contact form -->
+      </div><!-- end of container -->
+  </section><!-- end of contact section -->
+  </article>
+</section>
+<footer>
+  <p>Footer</p>
+</footer>
+
+<script>
+  var button = document.getElementById('form')
+
+  button.addEventListener("click",function(){
+    alert("Thank you for contacting me. I will get back to you soon.")
+  })
+</script>
+
+</body>
+</html>
+
